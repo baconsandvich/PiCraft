@@ -18,7 +18,7 @@ buildscript {
 apply plugin: 'forge'
 
 version = "1.7.2-0.0.1a"
-group= "com.baconsandvich.picraft" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group= "com.baconsandvich.PiCraft" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "PiCraft"
 
 minecraft {
