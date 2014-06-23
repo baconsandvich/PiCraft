@@ -1,0 +1,21 @@
+[
+{
+  "modid": "PiCraft",
+  "name": "Pioneer Craft",
+  "description": "Explore your blocky world, find mysterious things.",
+  "version": "${mod_version}",
+  "mcversion": "${minecraft_version}",
+  "url": "https://github.com/baconsandvich/PiCraft",
+  "updateUrl": "",
+  "authorList": [
+    "BaconSandvich"
+  ],
+  "credits": "Pahimar and his useful Let's Mod series!",
+  "logoFile": "assets/picraft/textures/logo/logo.png",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]
