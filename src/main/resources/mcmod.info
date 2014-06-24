@@ -1,6 +1,6 @@
 [
 {
-  "modid": "PiCraft",
+  "modid": "picraft",
   "name": "Pioneer Craft",
   "description": "Explore your blocky world, find mysterious things.",
   "version": "${mod_version}",
@@ -10,7 +10,7 @@
   "authorList": [
     "BaconSandvich"
   ],
-  "credits": "Pahimar and his useful Let's Mod series!",
+  "credits": "Pahimar, Vswe, Wuppy, All of the Minecraft Community",
   "logoFile": "assets/picraft/textures/logo/logo.png",
   "screenshots": [
   ],
