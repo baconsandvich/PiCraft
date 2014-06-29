@@ -1,6 +1,6 @@
 package com.baconsandvich.picraft.item;
 
-import com.baconsandvich.picraft.help.Reference;
+import com.baconsandvich.picraft.reference.Reference;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 

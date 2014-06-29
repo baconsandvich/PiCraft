@@ -1,6 +1,6 @@
 package com.baconsandvich.picraft.block;
 
-import com.baconsandvich.picraft.help.Reference;
+import com.baconsandvich.picraft.reference.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;

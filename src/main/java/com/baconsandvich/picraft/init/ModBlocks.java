@@ -1,7 +1,7 @@
 package com.baconsandvich.picraft.init;
 
 import com.baconsandvich.picraft.block.BlockRune;
-import com.baconsandvich.picraft.help.RegisterHelper;
+import com.baconsandvich.picraft.utility.RegisterHelper;
 import net.minecraft.block.Block;
 
 public class ModBlocks {

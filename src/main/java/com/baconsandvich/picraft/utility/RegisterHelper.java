@@ -1,5 +1,6 @@
-package com.baconsandvich.picraft.help;
+package com.baconsandvich.picraft.utility;
 
+import com.baconsandvich.picraft.reference.Reference;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
