@@ -1,5 +1,6 @@
 package com.baconsandvich.picraft;
 
+import com.baconsandvich.picraft.config.ConfigHandler;
 import com.baconsandvich.picraft.proxy.IProxy;
 import com.baconsandvich.picraft.reference.Reference;
 import com.baconsandvich.picraft.init.ModBlocks;
@@ -22,6 +23,7 @@ public class PiCraft {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event){
 
+        ConfigHandler.init(event.getSuggestedConfigurationFile());
         ModItems.init();
         ModBlocks.init();
 

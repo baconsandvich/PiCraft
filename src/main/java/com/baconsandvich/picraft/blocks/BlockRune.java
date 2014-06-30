@@ -25,7 +25,7 @@ public class BlockRune extends Block {
         setHarvestLevel("pickaxe", 3);
     }
 
-    protected int activeBlockSide = 2;
+    protected int activeBlockSide = 0;
 
     @SideOnly(Side.CLIENT)
     protected IIcon runeIcon;
@@ -53,12 +53,13 @@ public class BlockRune extends Block {
     }
 
     @Override
-    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack stack)
-    {
+    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack stack){
+
         int activeSide = TextureHelper.getBlockSideFacingEntity(x, y, z, entity);
         world.setBlockMetadataWithNotify(x, y, z, activeSide, 2);
         activeBlockSide = activeSide;
-        LogHelper.debug("activeSide: " + activeSide);
+        LogHelper.info("activeSide: " + activeSide);
+
     }
 
 }
