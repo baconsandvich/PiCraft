@@ -1,4 +1,4 @@
-package com.baconsandvich.picraft.blocks;
+package com.baconsandvich.picraft.block;
 
 import com.baconsandvich.picraft.reference.Reference;
 import com.baconsandvich.picraft.utility.LogHelper;

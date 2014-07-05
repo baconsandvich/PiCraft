@@ -1,6 +1,6 @@
-package com.baconsandvich.picraft.blocks.runes;
+package com.baconsandvich.picraft.block.rune;
 
-import com.baconsandvich.picraft.blocks.BlockRune;
+import com.baconsandvich.picraft.block.BlockRune;
 import com.baconsandvich.picraft.reference.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -12,8 +12,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class BlockRuneNumber extends BlockRune{
 
@@ -30,9 +28,9 @@ public class BlockRuneNumber extends BlockRune{
     public void registerBlockIcons(IIconRegister register){
 
         runeIcon = register.registerIcon("picraft:runeBlock");
-        runeTypeIcon = register.registerIcon(Reference.MODID + ":runes/" + getUnlocalizedName().substring(5));
+        runeTypeIcon = register.registerIcon(Reference.MODID + ":rune/" + getUnlocalizedName().substring(5));
         for (int i = 1; i <= 15; i++){
-            runeNumberIcon[i] = register.registerIcon(Reference.MODID + ":runes/" + getUnlocalizedName().substring(5) + i);
+            runeNumberIcon[i] = register.registerIcon(Reference.MODID + ":rune/" + getUnlocalizedName().substring(5) + i);
         }
     }
 

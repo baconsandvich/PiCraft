@@ -3,7 +3,7 @@
   "modid": "picraft",
   "name": "Pioneer Craft",
   "description": "Explore your blocky world, find mysterious things.",
-  "version": "${mod_version}",
+  "version": "1.7.10-0.0.1a",
   "mcversion": "${minecraft_version}",
   "url": "https://github.com/baconsandvich/PiCraft",
   "updateUrl": "",

@@ -1,6 +1,6 @@
-package com.baconsandvich.picraft.blocks.runes;
+package com.baconsandvich.picraft.block.rune;
 
-import com.baconsandvich.picraft.blocks.BlockRune;
+import com.baconsandvich.picraft.block.BlockRune;
 import com.baconsandvich.picraft.reference.Reference;
 import com.baconsandvich.picraft.reference.TimeRef;
 import com.baconsandvich.picraft.utility.LogHelper;
@@ -26,7 +26,7 @@ public class BlockRuneSun extends BlockRune{
     public void registerBlockIcons(IIconRegister register){
 
         runeIcon = register.registerIcon("picraft:runeBlock");
-        runeTypeIcon = register.registerIcon(Reference.MODID + ":runes/" + getUnlocalizedName().substring(5));
+        runeTypeIcon = register.registerIcon(Reference.MODID + ":rune/" + getUnlocalizedName().substring(5));
     }
 
     @Override
