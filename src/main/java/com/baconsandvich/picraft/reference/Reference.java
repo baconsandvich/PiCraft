@@ -8,5 +8,6 @@ public class Reference {
 
     public static final String BASE_FOLDER = "com.baconsandvich.picraft";
     public static final String PROXY_FOLDER = BASE_FOLDER + ".proxy";
+    public static final String CLIENT_FOLDER = BASE_FOLDER + ".client";
 
 }

@@ -17,12 +17,12 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.7.2-0.0.1a"
+version = "1.7.10-0.0.1a"
 group= "com.baconsandvich.PiCraft" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "PiCraft"
 
 minecraft {
-    version = "1.7.2-10.12.2.1127"
+    version = "1.7.10-10.13.0.1160"
     assetDir = "eclipse/assets"
 }
 

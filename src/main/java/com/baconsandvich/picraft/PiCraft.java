@@ -1,17 +1,18 @@
 package com.baconsandvich.picraft;
 
-import com.baconsandvich.picraft.config.ConfigHandler;
+import com.baconsandvich.picraft.handler.ConfigHandler;
 import com.baconsandvich.picraft.proxy.IProxy;
 import com.baconsandvich.picraft.reference.Reference;
 import com.baconsandvich.picraft.init.ModBlocks;
 import com.baconsandvich.picraft.init.ModItems;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION)
+@Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION, guiFactory = Reference.CLIENT_FOLDER + ".gui.GuiFactory")
 public class PiCraft {
 
     @Mod.Instance(Reference.MODID)
@@ -24,6 +25,7 @@ public class PiCraft {
     public void preInit(FMLPreInitializationEvent event){
 
         ConfigHandler.init(event.getSuggestedConfigurationFile());
+        FMLCommonHandler.instance().bus().register(new ConfigHandler());
         ModItems.init();
         ModBlocks.init();
 

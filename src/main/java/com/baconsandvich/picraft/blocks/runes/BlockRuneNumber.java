@@ -10,6 +10,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -19,7 +20,6 @@ public class BlockRuneNumber extends BlockRune{
     public BlockRuneNumber() {
         setBlockName("runeBlockNumber");
         setCreativeTab(CreativeTabs.tabBlock);
-        setTickRandomly(true);
     }
 
     @SideOnly(Side.CLIENT)
@@ -73,6 +73,18 @@ public class BlockRuneNumber extends BlockRune{
         }
 
         return true;
+    }
+
+    @Override
+    public boolean canProvidePower()
+    {
+        return true;
+    }
+
+    @Override
+    public int isProvidingWeakPower(IBlockAccess block, int x, int y, int z, int side)
+    {
+        return block.getBlockMetadata(x,y,z);
     }
 
 }

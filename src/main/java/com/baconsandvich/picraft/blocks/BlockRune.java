@@ -26,6 +26,7 @@ public class BlockRune extends Block {
     }
 
     protected int activeBlockSide = 0;
+    protected int[] trueCoords = new int[3];
 
     @SideOnly(Side.CLIENT)
     protected IIcon runeIcon;
@@ -59,6 +60,10 @@ public class BlockRune extends Block {
         world.setBlockMetadataWithNotify(x, y, z, activeSide, 2);
         activeBlockSide = activeSide;
         LogHelper.info("activeSide: " + activeSide);
+
+        trueCoords[0] = x;
+        trueCoords[1] = y;
+        trueCoords[2] = z;
 
     }
 

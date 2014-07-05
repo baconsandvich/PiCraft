@@ -18,7 +18,7 @@ public class BlockRuneSun extends BlockRune{
     public BlockRuneSun() {
         setBlockName("runeBlockSun");
         setCreativeTab(CreativeTabs.tabBlock);
-        setTickRandomly(true);
+        this.setTickRandomly(true);
     }
 
     @SideOnly(Side.CLIENT)
@@ -145,19 +145,29 @@ public class BlockRuneSun extends BlockRune{
     @Override
     public void updateTick(World world, int x, int y, int z, Random random) {
 
-        //Not working, possibly doing this whole thing wrong :(
         int time = (int)world.getWorldTime()/100;
         int formattedTime = time/16;
         int modTime = time%16;
 
+        LogHelper.info("[BlockRuneSun] " + world.getBlock(trueCoords[0],trueCoords[1]+2,trueCoords[2]).getUnlocalizedName().substring(5));
+
+        //Check and set trueCoords[]
         if (world.getBlock(x,y+2,z).getUnlocalizedName().substring(5).equals("runeBlockNumber")){
 
-            world.setBlockMetadataWithNotify(x,y+2,z,modTime,3);
+            trueCoords[0] = x;
+            trueCoords[1] = y;
+            trueCoords[2] = z;
 
         }
-        if (world.getBlock(x,y+3,z).getUnlocalizedName().substring(5).equals("runeBlockNumber")){
 
-            world.setBlockMetadataWithNotify(x,y+3,z,formattedTime,3);
+        if (world.getBlock(trueCoords[0],trueCoords[1]+2,trueCoords[2]).getUnlocalizedName().substring(5).equals("runeBlockNumber")){
+
+            world.setBlockMetadataWithNotify(trueCoords[0],trueCoords[1]+2,trueCoords[2],modTime,3);
+
+        }
+        if (world.getBlock(trueCoords[0],trueCoords[1]+3,trueCoords[2]).getUnlocalizedName().substring(5).equals("runeBlockNumber")){
+
+            world.setBlockMetadataWithNotify(trueCoords[0],trueCoords[1]+3,trueCoords[2],formattedTime,3);
 
         }
 
