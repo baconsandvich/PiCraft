@@ -16,8 +16,8 @@ import net.minecraft.world.World;
 public class BlockRuneNumber extends BlockRune{
 
     public BlockRuneNumber() {
-        setBlockName("runeBlockNumber");
-        setCreativeTab(CreativeTabs.tabBlock);
+        this.setBlockName("runeBlockNumber");
+        this.setCreativeTab(CreativeTabs.tabBlock);
     }
 
     @SideOnly(Side.CLIENT)

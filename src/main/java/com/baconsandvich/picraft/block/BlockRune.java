@@ -17,12 +17,12 @@ public class BlockRune extends Block {
 
     public BlockRune() {
         super(Material.rock);
-        setBlockName("runeBlock");
-        setStepSound(soundTypeStone);
-        setHardness(4f);
-        setResistance(5f);
-        setLightLevel(0.5f);
-        setHarvestLevel("pickaxe", 3);
+        this.setBlockName("runeBlock");
+        this.setStepSound(soundTypeStone);
+        this.setHardness(4f);
+        this.setResistance(5f);
+        this.setLightLevel(0.5f);
+        this.setHarvestLevel("pickaxe", 3);
     }
 
     protected int activeBlockSide = 0;

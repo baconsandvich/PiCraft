@@ -16,8 +16,8 @@ import java.util.Random;
 public class BlockRuneSun extends BlockRune{
 
     public BlockRuneSun() {
-        setBlockName("runeBlockSun");
-        setCreativeTab(CreativeTabs.tabBlock);
+        this.setBlockName("runeBlockSun");
+        this.setCreativeTab(CreativeTabs.tabBlock);
         this.setTickRandomly(true);
     }
 
