@@ -2,6 +2,7 @@ package com.baconsandvich.picraft.block.rune;
 
 import com.baconsandvich.picraft.block.BlockRune;
 import com.baconsandvich.picraft.reference.Reference;
+import com.baconsandvich.picraft.utility.WorldHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -60,7 +61,7 @@ public class BlockRuneNumber extends BlockRune{
         if(!world.isRemote){
             int newMeta = world.getBlockMetadata(x,y,z) + 1;
 
-            if (newMeta == 16 && world.getBlock(x,y+1,z).getUnlocalizedName().substring(5).equals("runeBlockNumber")){
+            if (newMeta == 16 && WorldHelper.getName(world.getBlock(x,y+1,z)).equals("runeBlockNumber")){
 
                 int neighborMeta = world.getBlockMetadata(x,y+1,z) + 1;
                 world.setBlockMetadataWithNotify(x,y+1,z,neighborMeta,3);

@@ -59,7 +59,7 @@ public class BlockRune extends Block {
         int activeSide = TextureHelper.getBlockSideFacingEntity(x, y, z, entity);
         world.setBlockMetadataWithNotify(x, y, z, activeSide, 2);
         activeBlockSide = activeSide;
-        LogHelper.info("activeSide: " + activeSide);
+        //LogHelper.info("activeSide: " + activeSide);
 
         trueCoords[0] = x;
         trueCoords[1] = y;

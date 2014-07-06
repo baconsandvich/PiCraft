@@ -4,6 +4,7 @@ import com.baconsandvich.picraft.block.BlockRune;
 import com.baconsandvich.picraft.reference.Reference;
 import com.baconsandvich.picraft.reference.TimeRef;
 import com.baconsandvich.picraft.utility.LogHelper;
+import com.baconsandvich.picraft.utility.WorldHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -45,7 +46,7 @@ public class BlockRuneSun extends BlockRune{
 
                         if (activeBlockSide == 3){
 
-                            detectedBlock = world.getBlock(x + i, y + j, z).getUnlocalizedName().substring(5);
+                            detectedBlock = WorldHelper.getName(world.getBlock(x + i, y + j, z));
 
                             if (detectedBlock.equals("lightgem")){
 
@@ -59,7 +60,7 @@ public class BlockRuneSun extends BlockRune{
                         }
                         else if (activeBlockSide == 4){
 
-                            detectedBlock = world.getBlock(x, y + j, z + i).getUnlocalizedName().substring(5);
+                            detectedBlock = WorldHelper.getName(world.getBlock(x, y + j, z + i));
 
                             if (detectedBlock.equals("lightgem")){
 
@@ -80,7 +81,7 @@ public class BlockRuneSun extends BlockRune{
 
                         if (activeBlockSide == 2){
 
-                            detectedBlock = world.getBlock(x + i, y + j, z).getUnlocalizedName().substring(5);
+                            detectedBlock = WorldHelper.getName(world.getBlock(x + i, y + j, z));
 
                             if (detectedBlock.equals("lightgem")){
 
@@ -94,7 +95,7 @@ public class BlockRuneSun extends BlockRune{
                         }
                         else if (activeBlockSide == 5){
 
-                            detectedBlock = world.getBlock(x, y + j, z + i).getUnlocalizedName().substring(5);
+                            detectedBlock = WorldHelper.getName(world.getBlock(x, y + j, z + i));
 
                             if (detectedBlock.equals("lightgem")){
 
@@ -149,10 +150,10 @@ public class BlockRuneSun extends BlockRune{
         int formattedTime = time/16;
         int modTime = time%16;
 
-        LogHelper.info("[BlockRuneSun] " + world.getBlock(trueCoords[0],trueCoords[1]+2,trueCoords[2]).getUnlocalizedName().substring(5));
+        //LogHelper.info("[BlockRuneSun] " + world.getBlock(trueCoords[0],trueCoords[1]+2,trueCoords[2]).getUnlocalizedName().substring(5));
 
         //Check and set trueCoords[]
-        if (world.getBlock(x,y+2,z).getUnlocalizedName().substring(5).equals("runeBlockNumber")){
+        if (WorldHelper.getName(world.getBlock(x,y+2,z)).equals("runeBlockNumber")){
 
             trueCoords[0] = x;
             trueCoords[1] = y;
@@ -160,12 +161,12 @@ public class BlockRuneSun extends BlockRune{
 
         }
 
-        if (world.getBlock(trueCoords[0],trueCoords[1]+2,trueCoords[2]).getUnlocalizedName().substring(5).equals("runeBlockNumber")){
+        if (WorldHelper.getName(world.getBlock(trueCoords[0],trueCoords[1]+2,trueCoords[2])).equals("runeBlockNumber")){
 
             world.setBlockMetadataWithNotify(trueCoords[0],trueCoords[1]+2,trueCoords[2],modTime,3);
 
         }
-        if (world.getBlock(trueCoords[0],trueCoords[1]+3,trueCoords[2]).getUnlocalizedName().substring(5).equals("runeBlockNumber")){
+        if (WorldHelper.getName(world.getBlock(trueCoords[0],trueCoords[1]+3,trueCoords[2])).equals("runeBlockNumber")){
 
             world.setBlockMetadataWithNotify(trueCoords[0],trueCoords[1]+3,trueCoords[2],formattedTime,3);
 

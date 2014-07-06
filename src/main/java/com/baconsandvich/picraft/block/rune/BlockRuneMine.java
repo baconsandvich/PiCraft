@@ -3,15 +3,14 @@ package com.baconsandvich.picraft.block.rune;
 import com.baconsandvich.picraft.block.BlockRune;
 import com.baconsandvich.picraft.reference.Reference;
 import com.baconsandvich.picraft.utility.LogHelper;
+import com.baconsandvich.picraft.utility.WorldHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockAir;
 import net.minecraft.block.BlockOre;
-import net.minecraft.block.BlockStone;
+import net.minecraft.block.BlockRedstoneOre;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -33,9 +32,26 @@ public class BlockRuneMine extends BlockRune{
     }
 
     @Override
+    public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
+
+        if (!world.isRemote){
+
+            if (world.isBlockIndirectlyGettingPowered(x, y, z)) {
+
+            }
+
+            if (WorldHelper.getName(world.getBlock(x, y + 1, z)).equals("air")){
+                world.setBlock(trueCoords[0], trueCoords[1]+1, trueCoords[2], grabOre(world));
+            }
+
+        }
+
+    }
+
+    @Override
     public void updateTick(World world, int x, int y, int z, Random random) {
 
-        LogHelper.info("[BlockRuneSun] " + world.getBlock(trueCoords[0], trueCoords[1] + 2, trueCoords[2]).getUnlocalizedName().substring(5));
+        LogHelper.info("[BlockRuneSun] updateTick: " + world.getBlock(trueCoords[0], trueCoords[1] + 2, trueCoords[2]).getUnlocalizedName().substring(5));
 
         //Check and set trueCoords[]
         if (world.getBlock(x,y,z).getUnlocalizedName().substring(5).equals("runeBlockMine")){
@@ -46,6 +62,7 @@ public class BlockRuneMine extends BlockRune{
 
         }
 
+        LogHelper.info("[BlockRuneMine]" + world.getBlock(trueCoords[0], trueCoords[1]+1, trueCoords[2]).getUnlocalizedName().substring(5));
         if (world.getBlock(trueCoords[0], trueCoords[1]+1, trueCoords[2]).getUnlocalizedName().substring(5).equals("air")){
             world.setBlock(trueCoords[0], trueCoords[1]+1, trueCoords[2], grabOre(world));
         }
@@ -57,9 +74,10 @@ public class BlockRuneMine extends BlockRune{
         for (int iY = 0; iY < trueCoords[1]; iY++){
             for (int iX = -8; iX <= 8; iX++){
                 for (int iZ = -8; iZ <= 8; iZ++){
-                    Block block = world.getBlock(trueCoords[0] + iX,trueCoords[1] + iY,trueCoords[2] + iZ);
-                    if (block instanceof BlockOre){
-                        world.setBlock(trueCoords[0] + iX,trueCoords[1] + iY,trueCoords[2] + iZ, Block.getBlockFromName("stone"));
+                    Block block = world.getBlock(trueCoords[0] + iX, iY,trueCoords[2] + iZ);
+                    LogHelper.info("[BlockRuneMine] grabOre: " + block);
+                    if (block instanceof BlockOre | block instanceof BlockRedstoneOre){
+                        world.setBlock(trueCoords[0] + iX, iY,trueCoords[2] + iZ, Block.getBlockFromName("stone"));
                         return block;
                     }
                 }
