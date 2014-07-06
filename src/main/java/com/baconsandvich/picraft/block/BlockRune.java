@@ -13,6 +13,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
+import java.util.Random;
+
 public class BlockRune extends Block {
 
     public BlockRune() {
@@ -56,15 +58,23 @@ public class BlockRune extends Block {
     @Override
     public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack stack){
 
-        int activeSide = TextureHelper.getBlockSideFacingEntity(x, y, z, entity);
-        world.setBlockMetadataWithNotify(x, y, z, activeSide, 2);
-        activeBlockSide = activeSide;
-        //LogHelper.info("activeSide: " + activeSide);
+        activeBlockSide = TextureHelper.getBlockSideFacingEntity(x, y, z, entity);
+        world.setBlockMetadataWithNotify(x, y, z, activeBlockSide, 2);
 
         trueCoords[0] = x;
         trueCoords[1] = y;
         trueCoords[2] = z;
 
+    }
+
+    public void onBlockAdded(World world, int x, int y, int z) {
+
+        activeBlockSide = world.rand.nextInt(3) + 2;
+        world.setBlockMetadataWithNotify(x,y,z,activeBlockSide,2);
+
+        trueCoords[0] = x;
+        trueCoords[1] = y;
+        trueCoords[2] = z;
     }
 
 }

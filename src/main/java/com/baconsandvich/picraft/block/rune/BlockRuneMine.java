@@ -40,6 +40,12 @@ public class BlockRuneMine extends BlockRune{
 
             }
 
+            if (world.getBlock(x,y-1,z) instanceof BlockRuneMine && trueCoords[1] != 0){
+                trueCoords[0] = x;
+                trueCoords[1] = y-1;
+                trueCoords[2] = z;
+            }
+
             if (WorldHelper.getName(world.getBlock(x, y + 1, z)).equals("air")){
                 world.setBlock(trueCoords[0], trueCoords[1]+1, trueCoords[2], grabOre(world));
             }
@@ -54,7 +60,7 @@ public class BlockRuneMine extends BlockRune{
         LogHelper.info("[BlockRuneSun] updateTick: " + world.getBlock(trueCoords[0], trueCoords[1] + 2, trueCoords[2]).getUnlocalizedName().substring(5));
 
         //Check and set trueCoords[]
-        if (world.getBlock(x,y,z).getUnlocalizedName().substring(5).equals("runeBlockMine")){
+        if (WorldHelper.getName(world.getBlock(x,y,z)).equals("runeBlockMine") && trueCoords[1] != 0){
 
             trueCoords[0] = x;
             trueCoords[1] = y;
@@ -62,8 +68,8 @@ public class BlockRuneMine extends BlockRune{
 
         }
 
-        LogHelper.info("[BlockRuneMine]" + world.getBlock(trueCoords[0], trueCoords[1]+1, trueCoords[2]).getUnlocalizedName().substring(5));
-        if (world.getBlock(trueCoords[0], trueCoords[1]+1, trueCoords[2]).getUnlocalizedName().substring(5).equals("air")){
+        LogHelper.info("[BlockRuneMine]" + WorldHelper.getName(world.getBlock(trueCoords[0], trueCoords[1]+1, trueCoords[2])));
+        if (trueCoords[1] != 0 && WorldHelper.getName(world.getBlock(trueCoords[0], trueCoords[1]+1, trueCoords[2])).equals("air")){
             world.setBlock(trueCoords[0], trueCoords[1]+1, trueCoords[2], grabOre(world));
         }
 
