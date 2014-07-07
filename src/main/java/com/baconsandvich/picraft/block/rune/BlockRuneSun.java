@@ -153,7 +153,7 @@ public class BlockRuneSun extends BlockRune{
         //LogHelper.info("[BlockRuneSun] " + world.getBlock(trueCoords[0],trueCoords[1]+2,trueCoords[2]).getUnlocalizedName().substring(5));
 
         //Check and set trueCoords[]
-        if (WorldHelper.getName(world.getBlock(x,y+2,z)).equals("runeBlockNumber")){
+        if (WorldHelper.getName(world.getBlock(x,y+2,z)).equals("runeBlockNumber") && trueCoords[1] == 0){
 
             trueCoords[0] = x;
             trueCoords[1] = y;
