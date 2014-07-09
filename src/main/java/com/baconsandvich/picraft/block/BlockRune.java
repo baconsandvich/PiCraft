@@ -19,7 +19,6 @@ public class BlockRune extends Block {
 
     public BlockRune() {
         super(Material.rock);
-        this.setBlockName("runeBlock");
         this.setStepSound(soundTypeStone);
         this.setHardness(4f);
         this.setResistance(5f);
@@ -28,7 +27,6 @@ public class BlockRune extends Block {
     }
 
     protected int activeBlockSide = 0;
-    protected int[] trueCoords = new int[3];
 
     @SideOnly(Side.CLIENT)
     protected IIcon runeIcon;
@@ -61,10 +59,6 @@ public class BlockRune extends Block {
         activeBlockSide = TextureHelper.getBlockSideFacingEntity(x, y, z, entity);
         world.setBlockMetadataWithNotify(x, y, z, activeBlockSide, 2);
 
-        trueCoords[0] = x;
-        trueCoords[1] = y;
-        trueCoords[2] = z;
-
     }
 
     public void onBlockAdded(World world, int x, int y, int z) {
@@ -72,9 +66,6 @@ public class BlockRune extends Block {
         activeBlockSide = world.rand.nextInt(3) + 2;
         world.setBlockMetadataWithNotify(x,y,z,activeBlockSide,2);
 
-        trueCoords[0] = x;
-        trueCoords[1] = y;
-        trueCoords[2] = z;
     }
 
 }

@@ -40,57 +40,26 @@ public class BlockRuneMine extends BlockRune{
 
             }
 
-            if (world.getBlock(x,y-1,z) instanceof BlockRuneMine && trueCoords[1] == 0){
-                //LogHelper.info("[BlockRuneMine] Setting trueCoords");
-                trueCoords[0] = x;
-                trueCoords[1] = y-1;
-                trueCoords[2] = z;
-            }
+            if (WorldHelper.getName(world.getBlock(x, y + 1, z)).equals("stone")){
 
-            if (WorldHelper.getName(world.getBlock(x, y + 1, z)).equals("air")){
-                world.setBlock(trueCoords[0], trueCoords[1]+1, trueCoords[2], grabOre(world));
-            }
+                for (int iY = y-1; iY > 0; iY--){
+                    for (int iX = -8; iX <= 8; iX++){
+                        for (int iZ = -8; iZ <= 8; iZ++){
 
-        }
+                            Block blockOre = world.getBlock(x + iX, iY,z + iZ);
+                            if (blockOre instanceof BlockOre | blockOre instanceof BlockRedstoneOre){
 
-    }
+                                world.setBlock(x + iX, iY,z + iZ, Block.getBlockFromName("stone"));
+                                world.setBlock(x, y+1, z, blockOre);
+                                return;
 
-    @Override
-    public void updateTick(World world, int x, int y, int z, Random random) {
-
-        LogHelper.info("[BlockRuneSun] updateTick: " + world.getBlock(trueCoords[0], trueCoords[1] + 2, trueCoords[2]).getUnlocalizedName().substring(5));
-
-        //Check and set trueCoords[]
-        if (WorldHelper.getName(world.getBlock(x,y,z)).equals("runeBlockMine") && trueCoords[1] == 0){
-
-            trueCoords[0] = x;
-            trueCoords[1] = y;
-            trueCoords[2] = z;
-
-        }
-
-        LogHelper.info("[BlockRuneMine]" + WorldHelper.getName(world.getBlock(trueCoords[0], trueCoords[1]+1, trueCoords[2])));
-        if (trueCoords[1] != 0 && WorldHelper.getName(world.getBlock(trueCoords[0], trueCoords[1]+1, trueCoords[2])).equals("air")){
-            world.setBlock(trueCoords[0], trueCoords[1]+1, trueCoords[2], grabOre(world));
-        }
-
-    }
-
-    private Block grabOre(World world){
-
-        for (int iY = 0; iY < trueCoords[1]; iY++){
-            for (int iX = -8; iX <= 8; iX++){
-                for (int iZ = -8; iZ <= 8; iZ++){
-                    Block block = world.getBlock(trueCoords[0] + iX, iY,trueCoords[2] + iZ);
-                    //LogHelper.info("[BlockRuneMine] grabOre: " + block);
-                    if (block instanceof BlockOre | block instanceof BlockRedstoneOre){
-                        world.setBlock(trueCoords[0] + iX, iY,trueCoords[2] + iZ, Block.getBlockFromName("stone"));
-                        return block;
+                            }
+                        }
                     }
                 }
             }
         }
-        return Block.getBlockFromName("air");
+
     }
 
 }

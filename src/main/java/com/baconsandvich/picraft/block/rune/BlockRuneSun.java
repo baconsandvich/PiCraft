@@ -19,7 +19,12 @@ public class BlockRuneSun extends BlockRune{
     public BlockRuneSun() {
         this.setBlockName("runeBlockSun");
         this.setCreativeTab(CreativeTabs.tabBlock);
-        this.setTickRandomly(true);
+    }
+
+    @Override
+    public int tickRate(World world)
+    {
+        return 1;
     }
 
     @SideOnly(Side.CLIENT)
@@ -39,6 +44,20 @@ public class BlockRuneSun extends BlockRune{
             boolean[] glowstoneDetected = new boolean[9];
             String detectedBlock;
             int k = 0;
+            int time = (int)world.getWorldTime()/100;
+            int formattedTime = time/16;
+            int modTime = time%16;
+
+            if (WorldHelper.getName(world.getBlock(x,y+2,z)).equals("runeBlockNumber")){
+
+                world.setBlockMetadataWithNotify(x,y+2,z,modTime,3);
+
+            }
+            if (WorldHelper.getName(world.getBlock(x,y+3,z)).equals("runeBlockNumber")){
+
+                world.setBlockMetadataWithNotify(x,y+3,z,formattedTime,3);
+
+            }
 
             if (activeBlockSide == 3 | activeBlockSide == 4){
                 for (int i = -1; i <= 1; i++){
@@ -138,37 +157,6 @@ public class BlockRuneSun extends BlockRune{
                 }
 
             }
-
-        }
-
-    }
-
-    @Override
-    public void updateTick(World world, int x, int y, int z, Random random) {
-
-        int time = (int)world.getWorldTime()/100;
-        int formattedTime = time/16;
-        int modTime = time%16;
-
-        //LogHelper.info("[BlockRuneSun] " + world.getBlock(trueCoords[0],trueCoords[1]+2,trueCoords[2]).getUnlocalizedName().substring(5));
-
-        //Check and set trueCoords[]
-        if (WorldHelper.getName(world.getBlock(x,y+2,z)).equals("runeBlockNumber") && trueCoords[1] == 0){
-
-            trueCoords[0] = x;
-            trueCoords[1] = y;
-            trueCoords[2] = z;
-
-        }
-
-        if (WorldHelper.getName(world.getBlock(trueCoords[0],trueCoords[1]+2,trueCoords[2])).equals("runeBlockNumber")){
-
-            world.setBlockMetadataWithNotify(trueCoords[0],trueCoords[1]+2,trueCoords[2],modTime,3);
-
-        }
-        if (WorldHelper.getName(world.getBlock(trueCoords[0],trueCoords[1]+3,trueCoords[2])).equals("runeBlockNumber")){
-
-            world.setBlockMetadataWithNotify(trueCoords[0],trueCoords[1]+3,trueCoords[2],formattedTime,3);
 
         }
 
