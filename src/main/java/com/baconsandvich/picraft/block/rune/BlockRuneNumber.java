@@ -6,7 +6,6 @@ import com.baconsandvich.picraft.utility.WorldHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -18,7 +17,6 @@ public class BlockRuneNumber extends BlockRune{
 
     public BlockRuneNumber() {
         this.setBlockName("runeBlockNumber");
-        this.setCreativeTab(CreativeTabs.tabBlock);
     }
 
     @SideOnly(Side.CLIENT)

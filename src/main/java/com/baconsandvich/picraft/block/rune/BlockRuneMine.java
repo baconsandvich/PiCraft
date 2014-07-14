@@ -2,7 +2,6 @@ package com.baconsandvich.picraft.block.rune;
 
 import com.baconsandvich.picraft.block.BlockRune;
 import com.baconsandvich.picraft.reference.Reference;
-import com.baconsandvich.picraft.utility.LogHelper;
 import com.baconsandvich.picraft.utility.WorldHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -10,7 +9,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockOre;
 import net.minecraft.block.BlockRedstoneOre;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -19,7 +17,6 @@ public class BlockRuneMine extends BlockRune{
 
     public BlockRuneMine() {
         this.setBlockName("runeBlockMine");
-        this.setCreativeTab(CreativeTabs.tabBlock);
         this.setTickRandomly(true);
     }
 

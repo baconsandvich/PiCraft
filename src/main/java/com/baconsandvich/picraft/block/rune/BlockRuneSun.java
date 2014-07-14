@@ -3,13 +3,11 @@ package com.baconsandvich.picraft.block.rune;
 import com.baconsandvich.picraft.block.BlockRune;
 import com.baconsandvich.picraft.reference.Reference;
 import com.baconsandvich.picraft.reference.TimeRef;
-import com.baconsandvich.picraft.utility.LogHelper;
 import com.baconsandvich.picraft.utility.WorldHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -18,7 +16,6 @@ public class BlockRuneSun extends BlockRune{
 
     public BlockRuneSun() {
         this.setBlockName("runeBlockSun");
-        this.setCreativeTab(CreativeTabs.tabBlock);
     }
 
     @Override
