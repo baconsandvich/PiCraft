@@ -4,9 +4,11 @@ import com.baconsandvich.picraft.block.BlockRune;
 import com.baconsandvich.picraft.block.rune.BlockRuneMine;
 import com.baconsandvich.picraft.block.rune.BlockRuneNumber;
 import com.baconsandvich.picraft.block.rune.BlockRuneSun;
+import com.baconsandvich.picraft.reference.Reference;
 import com.baconsandvich.picraft.utility.RegisterHelper;
-import net.minecraft.block.Block;
+import cpw.mods.fml.common.registry.GameRegistry;
 
+@GameRegistry.ObjectHolder(Reference.MODID)
 public class ModBlocks {
 
     public static final BlockRune runeBlockSun = new BlockRuneSun();
