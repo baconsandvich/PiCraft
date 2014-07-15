@@ -25,7 +25,10 @@ public class BlockRune extends Block {
         this.setLightLevel(0.5f);
         this.setHarvestLevel("pickaxe", 3);
         this.setCreativeTab(CreativeTabPi.PI_TAB);
+        this.setTickRandomly(true);
     }
+
+    protected boolean isActive = false;
 
     protected int activeBlockSide = 0;
 
@@ -55,7 +58,22 @@ public class BlockRune extends Block {
     }
 
     @Override
-    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack stack){
+    public void updateTick(World world, int x, int y, int z, Random rand) {
+
+
+
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
+
+
+
+    }
+
+    @Override
+    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack stack) {
 
         activeBlockSide = TextureHelper.getBlockSideFacingEntity(x, y, z, entity);
         world.setBlockMetadataWithNotify(x, y, z, activeBlockSide, 2);
