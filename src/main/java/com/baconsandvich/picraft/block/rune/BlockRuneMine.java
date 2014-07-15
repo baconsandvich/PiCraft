@@ -48,6 +48,7 @@ public class BlockRuneMine extends BlockRune{
 
                                 world.setBlock(x + iX, iY,z + iZ, Block.getBlockFromName("stone"));
                                 world.setBlock(x, y+1, z, blockOre);
+                                isActive = true;
                                 return;
 
                             }

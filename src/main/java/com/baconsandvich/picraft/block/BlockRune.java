@@ -60,7 +60,7 @@ public class BlockRune extends Block {
     @Override
     public void updateTick(World world, int x, int y, int z, Random rand) {
 
-
+        isActive = false;
 
     }
 
@@ -68,7 +68,18 @@ public class BlockRune extends Block {
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
 
+        if (isActive){
 
+            double particleX = x + rand.nextDouble();
+            double particleY = y + rand.nextDouble();
+            double particleZ = z + rand.nextDouble();
+
+            double motionX = -0.5F + rand.nextDouble();
+            double motionY = -0.5F + rand.nextDouble();
+            double motionZ = -0.5F + rand.nextDouble();
+
+            world.spawnParticle("portal",particleX , particleY, particleZ, motionX, motionY, motionZ);
+        }
 
     }
 
@@ -77,6 +88,7 @@ public class BlockRune extends Block {
 
         activeBlockSide = TextureHelper.getBlockSideFacingEntity(x, y, z, entity);
         world.setBlockMetadataWithNotify(x, y, z, activeBlockSide, 2);
+        isActive = true;
 
 
     }

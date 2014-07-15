@@ -68,6 +68,7 @@ public class BlockRuneNumber extends BlockRune{
 
             world.setBlockMetadataWithNotify(x,y,z,newMeta,3);
         }
+        isActive = true;
 
         return true;
     }

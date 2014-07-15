@@ -48,11 +48,13 @@ public class BlockRuneSun extends BlockRune{
             if (WorldHelper.getName(world.getBlock(x,y+2,z)).equals("runeBlockNumber")){
 
                 world.setBlockMetadataWithNotify(x,y+2,z,modTime,3);
+                isActive = true;
 
             }
             if (WorldHelper.getName(world.getBlock(x,y+3,z)).equals("runeBlockNumber")){
 
                 world.setBlockMetadataWithNotify(x,y+3,z,formattedTime,3);
+                isActive = true;
 
             }
 
@@ -128,6 +130,7 @@ public class BlockRuneSun extends BlockRune{
             }
 
             if(onlyOneGlowstone(glowstoneDetected)){
+                isActive = true;
                 if(glowstoneDetected[0]){
                     world.setWorldTime(TimeRef.LATENIGHT);
                 }
