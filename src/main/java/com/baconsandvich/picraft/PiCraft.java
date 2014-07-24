@@ -1,6 +1,7 @@
 package com.baconsandvich.picraft;
 
 import com.baconsandvich.picraft.handler.ConfigHandler;
+import com.baconsandvich.picraft.init.Recipes;
 import com.baconsandvich.picraft.proxy.IProxy;
 import com.baconsandvich.picraft.reference.Reference;
 import com.baconsandvich.picraft.init.ModBlocks;
@@ -33,6 +34,8 @@ public class PiCraft {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event){
+
+        Recipes.init();
 
     }
 
